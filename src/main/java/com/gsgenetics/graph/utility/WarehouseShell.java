@@ -60,9 +60,8 @@ public class WarehouseShell {
                         System.out.println("--------------------");
                         System.out.println();
                         System.out.println("Commands to use:");
-                        System.out.println("1) cat");
-                        System.out.println("2) exit");
-                        System.out.println("3) clear");
+                        System.out.println("1) exit");
+                        System.out.println("2) clear");
                         System.out.println();
                         System.out.println();
                         System.out.println("---------------------");
@@ -86,8 +85,6 @@ public class WarehouseShell {
                     else if(commandLine.startsWith("cat"))
                     {
                         System.out.println("test");
-                        //ProcessBuilder pb = new ProcessBuilder();
-                        //pb = new ProcessBuilder(commandLine);
                     }
 
 
@@ -103,8 +100,6 @@ public class WarehouseShell {
                     }
                     else
                     {
-    //                    System.out.println("Incorrect Command");
-                        //com.gsgenetics.graph.structure.Run Cypher Query
 
                         warehouseCypherEngine.RunQuery(commandLine.toString());
 
