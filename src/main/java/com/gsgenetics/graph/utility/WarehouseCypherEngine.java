@@ -23,7 +23,7 @@ public class WarehouseCypherEngine {
     public WarehouseCypherEngine()
     {
         try {
-            queryLogger = new QueryLogger();
+            queryLogger = new QueryLogger("MyPath");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,7 +32,7 @@ public class WarehouseCypherEngine {
     {
         Properties prop = new Properties();
         try {
-            prop.load(new FileInputStream("/sandbox/afrieden/MyTools/EmbeddedGraphPlatform/prodConfig.properties"));
+            prop.load(new FileInputStream("/change/me/now/prodConfig.properties"));
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
@@ -41,7 +41,6 @@ public class WarehouseCypherEngine {
         ExecutionEngine engine = new ExecutionEngine(graphDb);
         ExecutionResult result = engine.execute(_query);
 
-        //    System.out.println(result.dumpToString());
         String myResult = result.dumpToString();
         String[] LinesOfResults = myResult.split("\n");
         for(String line: LinesOfResults)
@@ -49,7 +48,6 @@ public class WarehouseCypherEngine {
             System.out.println(line);
         }
 
-        //log query
         queryLogger.log(_query);
 
 
