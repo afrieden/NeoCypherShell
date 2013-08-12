@@ -20,13 +20,13 @@ import java.util.logging.SimpleFormatter;
 public class AuditLogger {
     static private FileHandler fileTxt;
     static private SimpleFormatter formatterTxt;
-    static public void setup() throws IOException, ParseException {
+    static public void setup(String path) throws IOException, ParseException {
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
         logger.setLevel(Level.INFO);
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         java.util.Date date = new java.util.Date();
 //        System.out.println("Current Date : " + dateFormat.format(date));
-        fileTxt = new FileHandler("/sandbox/logs/Logging" + dateFormat.format(date) + ".txt");
+        fileTxt = new FileHandler(path + "/Logging" + dateFormat.format(date) + ".txt");
         formatterTxt = new SimpleFormatter();
         fileTxt.setFormatter(formatterTxt);
         logger.addHandler(fileTxt);
