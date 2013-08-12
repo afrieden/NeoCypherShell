@@ -18,10 +18,10 @@ public class QueryLogger {
     static private SimpleFormatter formatterTxt;
     static private java.util.logging.Logger logger = null;
     static private StringBuilder userName = new StringBuilder();
-    public QueryLogger() throws IOException {
+    public QueryLogger(String pathToLog) throws IOException {
         logger = java.util.logging.Logger.getLogger(java.util.logging.Logger.GLOBAL_LOGGER_NAME);
         logger.setLevel(Level.INFO);
-        fileTxt = new FileHandler("/var/log/neo4j/neo4j.log");
+        fileTxt = new FileHandler(pathToLog + "/neo4j.log");
         formatterTxt = new SimpleFormatter();
         fileTxt.setFormatter(formatterTxt);
         logger.addHandler(fileTxt);
