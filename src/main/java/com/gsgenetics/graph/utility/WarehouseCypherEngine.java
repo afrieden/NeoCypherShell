@@ -20,10 +20,10 @@ import java.util.Properties;
  */
 public class WarehouseCypherEngine {
     QueryLogger queryLogger = null;
-    public WarehouseCypherEngine(String MyPath)
+    public WarehouseCypherEngine()
     {
         try {
-            queryLogger = new QueryLogger(MyPath);
+            queryLogger = new QueryLogger("MyPath");
         } catch (IOException e) {
             e.printStackTrace();
         }
